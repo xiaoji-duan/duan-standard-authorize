@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/docs.min.css}">
+
+<title>短应用注册用户</title>
+</head>
+<body>
+	<header
+		class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+		<a class="navbar-brand mr-0 mr-md-2" href="/" aria-label="Bootstrap"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="36px" height="36px" viewBox="0 0 108 108" enable-background="new 0 0 108 108" xml:space="preserve">  <image id="image0" width="108" height="108" x="0" y="0"
+    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABsCAMAAAC4uKf/AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+AAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAACuFBMVEX///8AAAAjGBUjGBUj
+GBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUj
+GBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUj
+GBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUj
+GBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUj
+GBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUj
+GBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUj
+GBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUj
+GBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUj
+GBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUj
+GBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUj
+GBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUj
+GBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBUjGBX////m
+Yr+cAAAA5nRSTlMAAHRdYlY4+isN3vUDoMJOfg7jOpPwN/6nAs5XZg8Q6riQYCr8+bezQ1sBzfcM
+XKsH4E9z7QUXPFM+7yx3tnAbfNuh+5tp8nK5hunsokAwNlnQo6l9JWfPBh7KiwR6ZRHiiLoWLYSD
+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
+MSswODowMLMPfLQAAAAASUVORK5CYII=" />
+</svg>
+		</a>
+
+		<div class="navbar-nav-scroll">
+			<ul class="navbar-nav bd-navbar-nav flex-row">
+				<li class="nav-item"><a class="nav-link " href="/"
+					onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Home</a>
+				</li>
+				<li class="nav-item"><a class="nav-link active"
+					href="/docs/4.1/getting-started/introduction/"
+					onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Documentation</a>
+				</li>
+				<li class="nav-item"><a class="nav-link "
+					href="/docs/4.1/examples/"
+					onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">Examples</a>
+				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="https://themes.getbootstrap.com"
+					onclick="ga('send', 'event', 'Navbar', 'Community links', 'Themes');"
+					target="_blank" rel="noopener">Themes</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="https://expo.getbootstrap.com"
+					onclick="ga('send', 'event', 'Navbar', 'Community links', 'Expo');"
+					target="_blank" rel="noopener">Expo</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="https://blog.getbootstrap.com"
+					onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');"
+					target="_blank" rel="noopener">Blog</a></li>
+			</ul>
+		</div>
+
+		<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+			<li class="nav-item dropdown"><a
+				class="nav-item nav-link dropdown-toggle mr-md-2" href="#"
+				id="bd-versions" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"> v4.1 </a>
+				<div class="dropdown-menu dropdown-menu-right"
+					aria-labelledby="bd-versions">
+					<a class="dropdown-item active" href="/docs/4.1/">Latest
+						(4.1.x)</a> <a class="dropdown-item"
+						href="https://getbootstrap.com/docs/4.0/">v4.0.0</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="https://v4-alpha.getbootstrap.com/">v4
+						Alpha 6</a> <a class="dropdown-item"
+						href="https://getbootstrap.com/docs/3.3/">v3.3.7</a> <a
+						class="dropdown-item" href="https://getbootstrap.com/2.3.2/">v2.3.2</a>
+				</div></li>
+
+			<li class="nav-item"><a class="nav-link p-2"
+				href="https://github.com/twbs/bootstrap" target="_blank"
+				rel="noopener" aria-label="GitHub"><svg class="navbar-nav-svg"
+						xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36"
+						focusable="false">
+						<title>GitHub</title><path
+							d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z"
+							fill="currentColor" fill-rule="evenodd" /></svg> </a></li>
+			<li class="nav-item"><a class="nav-link p-2"
+				href="https://twitter.com/getbootstrap" target="_blank"
+				rel="noopener" aria-label="Twitter"><svg class="navbar-nav-svg"
+						xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 416.32"
+						focusable="false">
+						<title>Twitter</title><path
+							d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"
+							fill="currentColor" /></svg> </a></li>
+			<li class="nav-item"><a class="nav-link p-2"
+				href="https://www.guobaa.com" target="_blank"
+				rel="noopener" aria-label="短应用"><svg class="navbar-nav-svg"
+						xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512"
+						focusable="false">
+						<title>短应用</title><path fill="currentColor"
+							d="M210.787 234.832l68.31-22.883 22.1 65.977-68.309 22.882z" />
+						<path
+							d="M490.54 185.6C437.7 9.59 361.6-31.34 185.6 21.46S-31.3 150.4 21.46 326.4 150.4 543.3 326.4 490.54 543.34 361.6 490.54 185.6zM401.7 299.8l-33.15 11.05 11.46 34.38c4.5 13.92-2.87 29.06-16.78 33.56-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18l-11.46-34.38-68.36 22.92 11.46 34.38c4.5 13.92-2.87 29.06-16.78 33.56-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18l-11.46-34.43-33.15 11.05c-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18c-4.5-13.92 2.87-29.06 16.78-33.56l33.12-11.03-22.1-65.9-33.15 11.05c-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18c-4.48-13.93 2.89-29.07 16.81-33.58l33.15-11.05-11.46-34.38c-4.5-13.92 2.87-29.06 16.78-33.56s29.06 2.87 33.56 16.78l11.46 34.38 68.36-22.92-11.46-34.38c-4.5-13.92 2.87-29.06 16.78-33.56s29.06 2.87 33.56 16.78l11.47 34.42 33.15-11.05c13.92-4.5 29.06 2.87 33.56 16.78s-2.87 29.06-16.78 33.56L329.7 194.6l22.1 65.9 33.15-11.05c13.92-4.5 29.06 2.87 33.56 16.78s-2.88 29.07-16.81 33.57z"
+							fill="currentColor" /></svg> </a></li>
+		</ul>
+
+		<a
+			class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3"
+			href="/docs/4.1/getting-started/download/">Download</a>
+	</header>
+	<div class="container-fluid">
+	<div class="row">
+	<!-- 左边已注册短应用 -->
+	<div class="col-12 col-md-9">
+   <p></p>
+  <div class="container-fluid">
+	 <div class="row">
+	 </div>
+	 </div>
+	</div>
+	<!-- 右边注册短应用 -->
+	<div class="col-12 col-md-3">
+<p></p>
+  <form class="saRegisterForm" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="saName">名称</label>
+    <input type="text" class="form-control form-control-sm" id="saName" aria-describedby="nameHelp" placeholder="例如：工时统计">
+    <small id="emailHelp" class="form-text text-muted">请使用尽量短的文字描述该应用的功能.</small>
+  </div>
+  <div class="form-group">
+    <label for="saPrefix">前缀</label>
+    <input type="text" class="form-control form-control-sm" id="saPrefix" aria-describedby="prefixHelp" placeholder="例如：BAC">
+    <small id="emailHelp" class="form-text text-muted">请输入三位字母组成的短应用前缀，A**和X**平台已占用，不能使用.</small>
+  </div>
+  <div class="form-group">
+    <label for="saDescription">功能描述</label>
+    <textarea class="form-control" id="saDescription" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="saLogo">短应用图标</label>
+    <input type="file" name="fileUpload[]" class="form-control-file fileUpload" id="saLogo">
+    <div class="preview"></div>
+  </div>
+  <button type="button" id="saregister" class="btn btn-primary">注册</button>
+</form>
+	</div>
+	</div>
+	</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="@{/jquery/js/jquery-3.3.1.slim.min.js}"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="@{/jquery/js/popper.min.js}"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script src="@{/bootstrap/js/bootstrap.min.js}"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
+  <script src="@{/js/jquery.form.js}"></script>
+  <script src="@{/js/holder.min.js}"></script>
+</body>
+</html>
